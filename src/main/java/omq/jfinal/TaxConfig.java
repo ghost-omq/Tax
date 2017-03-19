@@ -1,6 +1,7 @@
 package omq.jfinal;
 
 import omq.model.Complain;
+import omq.user.UserController;
 
 import com.jfinal.config.Constants;
 import com.jfinal.config.Handlers;
@@ -10,6 +11,7 @@ import com.jfinal.config.Plugins;
 import com.jfinal.config.Routes;
 import com.jfinal.plugin.activerecord.ActiveRecordPlugin;
 import com.jfinal.plugin.c3p0.C3p0Plugin;
+import com.jfinal.render.ViewType;
 import com.jfinal.template.Engine;
 
 public class TaxConfig extends JFinalConfig{
@@ -19,7 +21,9 @@ public class TaxConfig extends JFinalConfig{
 	}
 
 	public void configRoute(Routes me) {
+		me.setBaseViewPath("WEB-INF/jsp");
 		me.add("/index",Index.class);
+		me.add("/user",UserController.class,"nsfw/user");
 	}
 
 	public void configEngine(Engine me) {
