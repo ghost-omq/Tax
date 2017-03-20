@@ -13,11 +13,12 @@ public class UserController extends Controller{
 	}
 	
 	public void add(){
+		
 	}
 	
 	public void save(){
 		getModel(UserController.class).save();
-		redirect("/list");
+		redirect("/listUI");
 	}
 	
 	public void edit(){

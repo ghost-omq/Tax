@@ -16,10 +16,11 @@
 			//prop jquery 1.6+建议使用
 			$("input[name=selectedRow]").prop("checked", $("#selAll").is(":checked"));		
 		}
+		
     </script>
 </head>
 <body class="rightBody">
-<form name="form1" action="" method="post" enctype="multipart/form-data">
+<form name="form1" action="user/UserController" method="post" enctype="multipart/form-data">
     <div class="p_d_1">
         <div class="p_d_1_1">
             <div class="content_info">
@@ -30,7 +31,7 @@
                     </li>
                     <li><input type="button" class="s_button" value="搜 索" onclick="doSearch()"/></li>
                     <li style="float:right;">
-                        <input type="button" value="新增" class="s_button" onclick="doAdd()"/>&nbsp;
+                        <input type="button" value="新增" name="add" class="s_button" onclick="doAdd()"/>&nbsp;
                         <input type="button" value="删除" class="s_button" onclick="doDeleteAll()"/>&nbsp;
                         <input type="button" value="导出" class="s_button" onclick="doExportExcel()"/>&nbsp;
                     	<input name="userExcel" type="file"/>
@@ -59,7 +60,7 @@
                                 <td align="center"></td>
                                 <td align="center"></td>
                                 <td align="center">
-                                    <a href="javascript:doEdit(id)">编辑</a>
+                                    <a href="WEB-INF/jsp/nsfw/user/editUI.jsp">编辑</a>
                                     <a href="javascript:doDelete(id)">删除</a>
                                 </td>
                             </tr>

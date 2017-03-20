@@ -6,7 +6,7 @@
     
 </head>
 <body class="rightBody">
-<form id="form" name="form" action="" method="post" enctype="multipart/form-data">
+<form id="form" name="form" action="user" method="post" enctype="multipart/form-data">
     <div class="p_d_1">
         <div class="p_d_1_1">
             <div class="content_info">
@@ -23,7 +23,7 @@
                 
                     <img src="" width="100" height="100"/>
                 
-                <input type="file" name="headImg"/>
+                <input type="file" name="user.headImg"/>
             </td>
         </tr>
         <tr>

@@ -25,7 +25,7 @@ public class TaxConfig extends JFinalConfig{
 		me.add("/index",Index.class);
 		me.add("/user",UserController.class,"nsfw/user");
 	}
-
+	
 	public void configEngine(Engine me) {
 		
 	}
