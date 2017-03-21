@@ -1,28 +1,34 @@
 package omq.user;
 
-import omq.model.Complain;
+import java.util.UUID;
 
 import com.jfinal.core.Controller;
 
 public class UserController extends Controller{
 	
-	private Complain complain = new Complain().dao();
+	private User user = new User().dao();
 	
 	public void index(){
+		Controller setAttr = setAttr("userPage", User.me.paginate(getParaToInt(0, 1), 10));
+		System.out.println(setAttr);
 		renderJsp("listUI.jsp");
-	}
-	
-	public void add(){
 		
 	}
 	
+	public void add(){
+		renderJsp("addUI.jsp");
+	}
+	
 	public void save(){
-		getModel(UserController.class).save();
-		redirect("/listUI");
+		User model = getModel(User.class);
+		String id = UUID.randomUUID().toString().replace("-", "");
+		model.setId(id);
+		model.save();
+		redirect("/user");
 	}
 	
 	public void edit(){
-		setAttr("edit", complain.findById(getParaToInt()));
+		setAttr("edit", user.findById(getParaToInt()));
 	}
 	
 	public void update(){
@@ -31,7 +37,7 @@ public class UserController extends Controller{
 	}
 	
 	public void delete(){
-		complain.deleteById(getParaToInt());
+		user.deleteById(getParaToInt());
 		redirect("/list");
 	}
 }

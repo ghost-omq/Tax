@@ -3,10 +3,12 @@
 <head>
     <%@include file="/common/header.jsp"%>
     <title>用户管理</title>
-    
+
+ 
+
 </head>
 <body class="rightBody">
-<form id="form" name="form" action="" method="post" enctype="multipart/form-data">
+<form id="form" name="form" action="${basePath}user/save" method="post"><!--  enctype="multipart/form-data" -->
     <div class="p_d_1">
         <div class="p_d_1_1">
             <div class="content_info">
@@ -15,57 +17,57 @@
     <table id="baseInfo" width="100%" align="center" class="list" border="0" cellpadding="0" cellspacing="0"  >
         <tr>
             <td class="tdBg" width="200px">所属部门：</td>
-            <td><s:select name="user.dept" list=""/></td>
+            <td><input type="text" name="user.dept" /></td>
         </tr>
         <tr>
             <td class="tdBg" width="200px">头像：</td>
             <td>
-                <input type="file" name="headImg"/>
+                <input type="file" name="user.headImg"/>
             </td>
         </tr>
         <tr>
             <td class="tdBg" width="200px">用户名：</td>
-            <td><s:textfield name="user.name"/> </td>
+            <td><input type="text" name="user.name"/></td>
         </tr>
         <tr>
             <td class="tdBg" width="200px">帐号：</td>
-            <td><s:textfield name="user.account"/></td>
+            <td><input type="text" name="user.account"/></td>
         </tr>
         <tr>
             <td class="tdBg" width="200px">密码：</td>
-            <td><s:textfield name="user.password"/></td>
+            <td><input type="text" name="user.password"/></td>
         </tr>
         <tr>
             <td class="tdBg" width="200px">性别：</td>
-            <td><s:radio list="#{'true':'男','false':'女'}" name="user.gender"/></td>
+            <td><input type="text" name="user.gender"/></td>
         </tr>
         <tr>
             <td class="tdBg" width="200px">角色：</td>
-            <td></td>
+            <td><input type="text" name="user.user"/></td>
         </tr>
         <tr>
             <td class="tdBg" width="200px">电子邮箱：</td>
-            <td><s:textfield name="user.email"/></td>
+            <td><input type="text" name="user.email"/></td>
         </tr>
         <tr>
             <td class="tdBg" width="200px">手机号：</td>
-            <td><s:textfield name="user.mobile"/></td>
+            <td><input type="text" name="user.mobile"/></td>
         </tr>
         <tr>
             <td class="tdBg" width="200px">生日：</td>
-            <td><s:textfield id="birthday" name="user.birthday" /></td>
+            <td><input type="text" name="user.birthday"/></td>
         </tr>
 		<tr>
             <td class="tdBg" width="200px">状态：</td>
-            <td><s:radio list="#{'1':'有效','0':'无效'}" name="user.state" value="1"/></td>
+            <td><input type="text" name="user.state"/></td>
         </tr>
         <tr>
             <td class="tdBg" width="200px">备注：</td>
-            <td><s:textarea name="user.memo" cols="75" rows="3"/></td>
+            <td><input type="text" name="user.memo"/></td>
         </tr>
     </table>
     <div class="tc mt20">
-        <input type="submit" class="btnB2" value="保存" />
+        <input type="submit" class="btnB2" value="保存"/>
         &nbsp;&nbsp;&nbsp;&nbsp;
         <input type="button"  onclick="javascript:history.go(-1)" class="btnB2" value="返回" />
     </div>

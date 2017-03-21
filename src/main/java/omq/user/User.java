@@ -2,97 +2,110 @@ package omq.user;
 
 import java.util.Date;
 
-public class User {
+import omq.model.Complain;
+
+import com.jfinal.plugin.activerecord.Model;
+import com.jfinal.plugin.activerecord.Page;
+
+public class User extends Model<User>{
+	
+	public static final User me = new User();
+	
+	public Page<User> paginate(int pageNumber, int pageSize) {
+		return paginate(pageNumber, pageSize, "select *", "from user order by id asc");
+	}
+	
 	private String id;
 	private String dept;
 	private String headImg;
 	private String name;
 	private String account;
 	private String password;
-	private boolean gender;
+	private Integer gender;
 	private String user;
 	private String email;
 	private String mobile;
 	private Date birthday;
 	private String state;
 	private String memo;
+	
 	public String getId() {
-		return id;
+		return get("id");
 	}
 	public void setId(String id) {
-		this.id = id;
+		set("id",id);
 	}
 	public String getDept() {
-		return dept;
+		return get("dept");
 	}
 	public void setDept(String dept) {
-		this.dept = dept;
+		set("dept",dept);
 	}
 	public String getHeadImg() {
-		return headImg;
+		return get("headImg");
 	}
 	public void setHeadImg(String headImg) {
-		this.headImg = headImg;
+		set("headImg",headImg);
 	}
 	public String getName() {
-		return name;
+		return get("name");
 	}
 	public void setName(String name) {
-		this.name = name;
+		set("name",name);
 	}
 	public String getAccount() {
-		return account;
+		return get("account");
 	}
 	public void setAccount(String account) {
-		this.account = account;
+		set("account",account);
 	}
 	public String getPassword() {
-		return password;
+		return get("password");
 	}
 	public void setPassword(String password) {
-		this.password = password;
+		set("password",password);
 	}
-	public boolean isGender() {
-		return gender;
+	public Integer getGender() {
+		return get("gender");
 	}
-	public void setGender(boolean gender) {
-		this.gender = gender;
+	public void setGender(Integer gender) {
+		set("gender",gender);
 	}
 	public String getUser() {
-		return user;
+		return get("user");
 	}
 	public void setUser(String user) {
-		this.user = user;
+		set("user",user);
 	}
 	public String getEmail() {
-		return email;
+		return get("email");
 	}
 	public void setEmail(String email) {
-		this.email = email;
+		set("email",email);
 	}
 	public String getMobile() {
-		return mobile;
+		return get("mobile");
 	}
 	public void setMobile(String mobile) {
-		this.mobile = mobile;
+		set("mobile",mobile);
 	}
 	public Date getBirthday() {
-		return birthday;
+		return get("birthday");
 	}
 	public void setBirthday(Date birthday) {
-		this.birthday = birthday;
+		set("birthday",birthday);
 	}
 	public String getState() {
-		return state;
+		return get("state");
 	}
 	public void setState(String state) {
-		this.state = state;
+		set("state",state);
 	}
 	public String getMemo() {
-		return memo;
+		return get("memo");
 	}
 	public void setMemo(String memo) {
-		this.memo = memo;
+		set("memo",memo);
 	}
 	
 }

@@ -17,6 +17,12 @@
 			$("input[name=selectedRow]").prop("checked", $("#selAll").is(":checked"));		
 		}
 		
+		function doAdd(){
+			document.forms[0].action = "${basePath}user/add";
+      		document.forms[0].submit();
+		}
+		
+		
     </script>
 </head>
 <body class="rightBody">
@@ -31,7 +37,7 @@
                     </li>
                     <li><input type="button" class="s_button" value="搜 索" onclick="doSearch()"/></li>
                     <li style="float:right;">
-                        <input type="button" value="新增" name="add" class="s_button" onclick="doAdd()"/>&nbsp;
+                        <input type="button" value="新增" class="s_button" onclick="doAdd()"/>&nbsp;
                         <input type="button" value="删除" class="s_button" onclick="doDeleteAll()"/>&nbsp;
                         <input type="button" value="导出" class="s_button" onclick="doExportExcel()"/>&nbsp;
                     	<input name="userExcel" type="file"/>
@@ -40,34 +46,40 @@
                     </li>
                 </div>
 
-                <div class="t_list" style="margin:0px; border:0px none;">
-                    <table width="100%" border="0">
-                        <tr class="t_tit">
-                            <td width="30" align="center"><input type="checkbox" id="selAll" onclick="doSelectAll()" /></td>
-                            <td width="140" align="center">用户名</td>
-                            <td width="140" align="center">帐号</td>
-                            <td width="160" align="center">所属部门</td>
-                            <td width="80" align="center">性别</td>
-                            <td align="center">电子邮箱</td>
-                            <td width="100" align="center">操作</td>
-                        </tr>
-                        
-                            <tr bgcolor="f8f8f8">
-                                <td align="center"><input type="checkbox" name="selectedRow" value=""/></td>
-                                <td align="center">xxx</td>
-                                <td align="center"></td>
-                                <td align="center"></td>
-                                <td align="center"></td>
-                                <td align="center"></td>
-                                <td align="center">
-                                    <a href="WEB-INF/jsp/nsfw/user/editUI.jsp">编辑</a>
-                                    <a href="javascript:doDelete(id)">删除</a>
-                                </td>
-                            </tr>
-                        
-                    </table>
-                </div>
-            </div>
+
+						<div class="t_list" style="margin:0px; border:0px none;">
+							<table width="100%" border="0">
+								<tr class="t_tit">
+									<td width="30" align="center"><input type="checkbox"
+										id="selAll" onclick="doSelectAll()" /></td>
+									<td width="140" align="center">用户名</td>
+									<td width="140" align="center">帐号</td>
+									<td width="160" align="center">所属部门</td>
+									<td width="80" align="center">性别</td>
+									<td align="center">电子邮箱</td>
+									<td width="100" align="center">操作</td>
+								</tr>
+
+								<%
+								String [] names = { "小明", "小黄", "小新" };
+								pageContext.setAttribute("names", names);
+								%>
+								${names[2]}
+
+								<tr bgcolor="f8f8f8">
+									<td align="center"><input type="checkbox"name="selectedRow" value="" /></td>
+									<td align="center">xxx</td>
+									<td align="center"></td>
+									<td align="center"></td>
+									<td align="center"></td>
+									<td align="center"></td>
+									<td align="center"><a
+										href="WEB-INF/jsp/nsfw/user/editUI.jsp">编辑</a> <a
+										href="javascript:doDelete(id)">删除</a></td>
+								</tr>
+							</table>
+						</div>
+				</div>
         <div class="c_pate" style="margin-top: 5px;">
 		<table width="100%" class="pageDown" border="0" cellspacing="0"
 			cellpadding="0">

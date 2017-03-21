@@ -5,6 +5,9 @@ import java.util.Date;
 import com.jfinal.plugin.activerecord.Model;
 
 public class Complain extends Model<Complain>{
+	
+	private static final Complain me = new Complain();
+	
 	private String comp_id;
 	private String comp_company;
 	private String comp_name;

@@ -1,6 +1,7 @@
 package omq.jfinal;
 
 import omq.model.Complain;
+import omq.user.User;
 import omq.user.UserController;
 
 import com.jfinal.config.Constants;
@@ -38,6 +39,7 @@ public class TaxConfig extends JFinalConfig{
 		ActiveRecordPlugin arp = new ActiveRecordPlugin(c3p0Plugin);
 		me.add(arp);
 		arp.addMapping("complain","comp_id", Complain.class);
+		arp.addMapping("user", "id",User.class);
 	}
 
 	public void configInterceptor(Interceptors me) {

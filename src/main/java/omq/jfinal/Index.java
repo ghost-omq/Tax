@@ -9,6 +9,7 @@ import com.jfinal.core.Controller;
 public class Index extends Controller{
 	public void index(){
 		Complain complain = new Complain();
+		
 	/*
 		complain.setComp_id("2");
 		complain.setComp_company("A");
