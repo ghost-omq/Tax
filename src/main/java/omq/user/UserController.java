@@ -3,20 +3,21 @@ package omq.user;
 import java.util.UUID;
 
 import com.jfinal.core.Controller;
+import com.jfinal.plugin.activerecord.Page;
 
 public class UserController extends Controller{
 	
 	private User user = new User().dao();
 	
 	public void index(){
-		Controller setAttr = setAttr("userPage", User.me.paginate(getParaToInt(0, 1), 10));
-		System.out.println(setAttr);
-		renderJsp("listUI.jsp");
+		Page<User> paginate = User.me.paginate(getParaToInt(0, 1), 10);
+		Controller setAttr = setAttr("userPage",paginate);
+		render("listUI.html");
 		
 	}
 	
 	public void add(){
-		renderJsp("addUI.jsp");
+		render("addUI.html");
 	}
 	
 	public void save(){
@@ -28,16 +29,22 @@ public class UserController extends Controller{
 	}
 	
 	public void edit(){
-		setAttr("edit", user.findById(getParaToInt()));
+		String para = getPara();
+		User findById = user.findById(para);
+		setAttr("user", findById);
+		render("editUI.html");
+		
 	}
 	
 	public void update(){
-		getModel(UserController.class).update();
-		redirect("/list");
+		User model = getModel(User.class);
+		model.update();
+		redirect("/user");
 	}
 	
 	public void delete(){
-		user.deleteById(getParaToInt());
-		redirect("/list");
+		String para = getPara();
+		boolean deleteById = user.deleteById(para);
+		redirect("/user");
 	}
 }

@@ -1,13 +1,8 @@
-﻿<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-
-<%
-    pageContext.setAttribute("basePath", request.getContextPath()+"/") ;
-%>
-<html>
+﻿<html>
 <head>
     <title>用户管理</title>
-    <script type="text/javascript" src="${basePath}js/jquery/jquery-1.10.2.min.js"></script>
-    <link href="${basePath}css/skin1.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="/js/jquery/jquery-1.10.2.min.js"></script>
+    <link href="/css/skin1.css" rel="stylesheet" type="text/css" />
     <script type="text/javascript">
       	//全选、全反选
 		function doSelectAll(){
@@ -18,7 +13,7 @@
 		}
 		
 		function doAdd(){
-			document.forms[0].action = "${basePath}user/add";
+			document.forms[0].action = "/user/add";
       		document.forms[0].submit();
 		}
 		
@@ -59,24 +54,19 @@
 									<td align="center">电子邮箱</td>
 									<td width="100" align="center">操作</td>
 								</tr>
-
-								<%
-								String [] names = { "小明", "小黄", "小新" };
-								pageContext.setAttribute("names", names);
-								%>
-								${names[2]}
-
+								#for(user : userPage.getList()??)
 								<tr bgcolor="f8f8f8">
 									<td align="center"><input type="checkbox"name="selectedRow" value="" /></td>
-									<td align="center">xxx</td>
-									<td align="center"></td>
-									<td align="center"></td>
-									<td align="center"></td>
-									<td align="center"></td>
+									<td align="center">#(user.name)</td>
+									<td align="center">#(user.account)</td>
+									<td align="center">#(user.dept)</td>
+									<td align="center">#(user.gender)</td>
+									<td align="center">#(user.email)</td>
 									<td align="center"><a
-										href="WEB-INF/jsp/nsfw/user/editUI.jsp">编辑</a> <a
-										href="javascript:doDelete(id)">删除</a></td>
+										href="user/edit/#(user.id??)">编辑</a> <a
+										href="/user/delete/#(user.id??)">删除</a></td>
 								</tr>
+								#end
 							</table>
 						</div>
 				</div>
