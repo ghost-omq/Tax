@@ -18,7 +18,7 @@ import com.jfinal.template.Engine;
 public class TaxConfig extends JFinalConfig{
 
 	public void configConstant(Constants me) {
-		
+		//me.setBaseUploadPath("upload");
 	}
 
 	public void configRoute(Routes me) {

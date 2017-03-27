@@ -5,7 +5,7 @@
 
 </head>
 <body class="rightBody">
-<form id="form" name="form" action="/user/save" method="post"><!--  enctype="multipart/form-data" -->
+<form id="form" name="form" action="/user/save" method="post" enctype="multipart/form-data"><!--   -->
     <div class="p_d_1">
         <div class="p_d_1_1">
             <div class="content_info">
@@ -20,7 +20,7 @@
             <td class="tdBg" width="200px">头像：</td>
             <td>
                 
-                    <img src="" width="100" height="100"/>
+                    <img src="upload" width="100" height="100"/>
                 
                 <input type="file" name="user.headImg"/>
             </td>
@@ -39,7 +39,9 @@
         </tr>
         <tr>
             <td class="tdBg" width="200px">性别：</td>
-            <td><input type="text" name="user.gender"/></td>
+            <td><input type="radio" name="user.gender" value="男">男
+				<input type="radio" name="user.gender" value="女">女
+			</td>
         </tr>
         <tr>
             <td class="tdBg" width="200px">角色：</td>

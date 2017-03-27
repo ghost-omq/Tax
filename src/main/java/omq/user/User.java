@@ -21,7 +21,7 @@ public class User extends Model<User>{
 	private String name;
 	private String account;
 	private String password;
-	private Integer gender;
+	private String gender;
 	private String user;
 	private String email;
 	private String mobile;
@@ -65,10 +65,10 @@ public class User extends Model<User>{
 	public void setPassword(String password) {
 		set("password",password);
 	}
-	public Integer getGender() {
+	public String getGender() {
 		return get("gender");
 	}
-	public void setGender(Integer gender) {
+	public void setGender(String gender) {
 		set("gender",gender);
 	}
 	public String getUser() {

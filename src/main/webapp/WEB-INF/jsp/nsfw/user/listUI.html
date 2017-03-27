@@ -9,19 +9,24 @@
 			// jquery 1.6 前
 			//$("input[name=selectedRow]").attr("checked", $("#selAll").is(":checked"));
 			//prop jquery 1.6+建议使用
+			
 			$("input[name=selectedRow]").prop("checked", $("#selAll").is(":checked"));		
+			
 		}
+
+			function doDeleteAll() {
+				document.forms[0].action = "/user/deleteAll";
+				document.forms[0].submit();
+			}
 		
-		function doAdd(){
-			document.forms[0].action = "/user/add";
-      		document.forms[0].submit();
-		}
-		
-		
-    </script>
+			function doAdd() {
+				document.forms[0].action = "/user/add";
+				document.forms[0].submit();
+			}
+				</script>
 </head>
 <body class="rightBody">
-<form name="form1" action="user/UserController" method="post" enctype="multipart/form-data">
+<form name="form1" action="user/UserController" method="post" > <!-- enctype="multipart/form-data" -->
     <div class="p_d_1">
         <div class="p_d_1_1">
             <div class="content_info">
@@ -45,8 +50,7 @@
 						<div class="t_list" style="margin:0px; border:0px none;">
 							<table width="100%" border="0">
 								<tr class="t_tit">
-									<td width="30" align="center"><input type="checkbox"
-										id="selAll" onclick="doSelectAll()" /></td>
+									<td width="30" align="center"><input type="checkbox" id="selAll" onclick="doSelectAll()" /></td>
 									<td width="140" align="center">用户名</td>
 									<td width="140" align="center">帐号</td>
 									<td width="160" align="center">所属部门</td>
@@ -56,7 +60,7 @@
 								</tr>
 								#for(user : userPage.getList()??)
 								<tr bgcolor="f8f8f8">
-									<td align="center"><input type="checkbox"name="selectedRow" value="" /></td>
+									<td align="center"><input type="checkbox"name="selectedRow" value="#(user.id??)" /></td>
 									<td align="center">#(user.name)</td>
 									<td align="center">#(user.account)</td>
 									<td align="center">#(user.dept)</td>
