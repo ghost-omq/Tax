@@ -8,7 +8,9 @@ import org.apache.poi.hssf.usermodel.HSSFRow;
 import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 
-public class PoiPull {
+import com.jfinal.core.Controller;
+
+public class PoiPull  extends Controller{
 
 	public static void main(String[] args) throws IOException {
 		FileInputStream inputStrem = new FileInputStream("F:\\java\\工作簿.xls");

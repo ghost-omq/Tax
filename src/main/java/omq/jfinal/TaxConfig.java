@@ -1,6 +1,8 @@
 package omq.jfinal;
 
 import omq.model.Complain;
+import omq.poi.PoiPull;
+import omq.poi.PoiPush;
 import omq.user.User;
 import omq.user.UserController;
 

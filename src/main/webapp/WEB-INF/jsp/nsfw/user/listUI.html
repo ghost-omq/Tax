@@ -13,20 +13,30 @@
 			$("input[name=selectedRow]").prop("checked", $("#selAll").is(":checked"));		
 			
 		}
-
-			function doDeleteAll() {
-				document.forms[0].action = "/user/deleteAll";
-				document.forms[0].submit();
-			}
 		
-			function doAdd() {
-				document.forms[0].action = "/user/add";
-				document.forms[0].submit();
-			}
-				</script>
+		function doExportExcel(){
+			document.forms[0].action = "/user/pull";
+			document.forms[0].submit();
+		}
+		
+		function doImportExcel(){
+			document.forms[0].action = "/user/push";
+			document.forms[0].submit();
+		}
+		
+		function doDeleteAll() {
+			document.forms[0].action = "/user/deleteAll";
+			document.forms[0].submit();
+		}
+		
+		function doAdd() {
+			document.forms[0].action = "/user/add";
+			document.forms[0].submit();
+		}
+	</script>
 </head>
 <body class="rightBody">
-<form name="form1" action="user/UserController" method="post" > <!-- enctype="multipart/form-data" -->
+<form name="form1" action="user/UserController" method="post" enctype="multipart/form-data"> <!--  -->
     <div class="p_d_1">
         <div class="p_d_1_1">
             <div class="content_info">
